@@ -15,6 +15,9 @@
 
             if(!Enum.IsDefined(typeof(ExpenseCategory), category))
                 throw new ArgumentException("Invalid category.", nameof(category));
+            
+            if(date > DateTime.Now)
+                throw new ArgumentException("Date cannot be in the future.", nameof(date));
 
             Name = name;
             Category = category;
